@@ -1,0 +1,21 @@
+@()
+
+@main("Welcome to Play") {
+  <h1>Welcome to Bitcoin Stat</h1>
+  <h1>API</h1>
+  <h2>Price History</h2>
+  <ul>
+    <li>http://localhost:9000/api/v1/bitcoin/usd/price/history?period=all</li>
+    <li>http://localhost:9000/api/v1/bitcoin/usd/price/history?period=week</li>
+    <li>http://localhost:9000/api/v1/bitcoin/usd/price/history?period=year</li>
+    <li>http://localhost:9000/api/v1/bitcoin/usd/price/history?startDate=2018-01-01&endDate=2018-08-15</li>
+  </ul>
+  <h2>PriceMovement</h2>
+  <ul>
+    <li> http://localhost:9000/api/v1/bitcoin/usd/price/average?startDate=2018-01-01&endDate=2018-08-15</li>
+  </ul>
+  <h2>Predict</h2>
+    <ul>
+      <li>http://localhost:9000/api/v1/bitcoin/usd/predict?startDate=2018-01-01&endDate=2018-08-15</li>
+    </ul>
+}
