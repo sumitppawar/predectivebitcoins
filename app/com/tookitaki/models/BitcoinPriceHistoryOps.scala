@@ -82,5 +82,10 @@ class BitcoinPriceHistoryOps(history: BitcoinPriceHistory) {
         PriceMovement(max,average,min)
     }
 
+
+  def getMaxPriceByWindow(startDate:LocalDate, endDate: LocalDate, windowSize: Int) : Seq[Price] =
+    byDate(startDate, endDate).prices.grouped(windowSize).
+      toSeq
+      .map(_.max)
 }
 

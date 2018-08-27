@@ -1,6 +1,6 @@
 package controllers
 import com.tookitaki.models.BitcoinPriceHistory
-import com.tookitaki.models.request.ProcessRequest
+import com.tookitaki.models.request.{ProcessRequest, ProcessWindowRequest}
 import com.tookitaki.service.BitcoinPriceHistoryService
 import javax.inject.{Inject, Singleton}
 import play.api.Logger
@@ -46,6 +46,16 @@ class BitcoinController @Inject()(cc: ControllerComponents,
       case _ => Ok(s"{'erro': 'Invalid period!'}")
     }
   }
+
+  def window = Action { implicit request: Request[AnyContent] =>
+    request match {
+      case ProcessWindowRequest(startDate, endDate,  window) =>
+        processResponse(bitcoinPriceHistory => bitcoinPriceHistory.getMaxPriceByWindow(startDate,endDate, window) )
+      case _ =>   Ok(s"{'erro': 'Invalid period! or Window'}")
+    }
+  }
+
+
 
   private  def processResponse[T](f: BitcoinPriceHistory => T)(implicit formate: Format[T]) = {
     bitcoinPriceHistoryService.getHistory

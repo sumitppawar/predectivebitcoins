@@ -14,5 +14,17 @@ object BitcoinPriceHistory {
 
 }
 
+object Price {
+  implicit val ordering = new Ordering[Price] {
+    override def compare(x: Price, y: Price): Int  =
+      if(x.price.toDouble > y.price.toDouble)
+        1
+      else if (x.price.toDouble < y.price.toDouble)
+        -1
+      else 0
+  }
+
+  implicit val priceJsonFormat = Json.format[Price]
+}
 
 

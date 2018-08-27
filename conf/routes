@@ -7,6 +7,7 @@ GET     /                                          controllers.HomeController.in
 GET    /api/v1/bitcoin/usd/price/history           controllers.BitcoinController.history
 GET    /api/v1/bitcoin/usd/price/average           controllers.BitcoinController.average
 GET    /api/v1/bitcoin/usd/predict                 controllers.BitcoinController.predict
+GET    /api/v1/bitcoin/usd/price/window            controllers.BitcoinController.window
 
 
 # Map static resources from the /public folder to the /assets URL path

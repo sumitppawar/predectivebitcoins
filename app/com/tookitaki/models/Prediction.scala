@@ -12,3 +12,4 @@ object Prediction {
   implicit  val jsonFormat = Json.format[Prediction]
 }
 
+
